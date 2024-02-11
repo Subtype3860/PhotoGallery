@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using PhotoGallery.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +10,16 @@ namespace PhotoGallery.Views
     {
         public LoginPage()
         {
-            InitializeComponent();
+            BindingContext = new LoginPageViewModel();
+
+            Appearing += (object sender, EventArgs e) => {
+                HiddenEntry.Focus();
+            };
+
+            this.HiddenEntry.Unfocused += (object sender, FocusEventArgs e) => {
+                HiddenEntry.Focus();
+                base.OnAppearing();
+            };
         }
     }
 }

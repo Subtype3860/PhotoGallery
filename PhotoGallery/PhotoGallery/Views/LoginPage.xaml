@@ -1,12 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PhotoGallery.Views.LoginPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+             x:Class="PhotoGallery.Views.LoginPage"
+             xmlns:converters="clr-namespace:PhotoGallery.Converters"
+             xmlns:behaviors="clr-namespace:PhotoGallery" />
+<ContentPage.Resources>
+    <ResourceDictionary>
+        <converters:PinEntry1Converter x:Key="PinEntry1Converter" />
+        <converters:PinEntry2Converter x:Key="PinEntry2Converter" />
+        <converters:PinEntry3Converter x:Key="PinEntry3Converter" />
+        <converters:PinEntry4Converter x:Key="PinEntry4Converter" />
+    </ResourceDictionary>
+</ContentPage.Resources>
+<ScrollView>
+    <StackLayout Padding="30, 90, 30, 0">
+        <Entry x:Name="HiddenEntry" IsVisible="False" Text="{Binding Pin}" Keyboard="Numeric" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Entry.Behaviors>
+                <behaviors:EntryLengthValidatorBehavior MaxLength="4" />
+            </Entry.Behaviors>
+        </Entry>
+        <Grid>
+            <Entry x:Name="pin1" WidthRequest="50" HeightRequest="50" Grid.Row="0" Grid.Column="0"/>
+            <Entry x:Name="pin2" WidthRequest="50" HeightRequest="50" Grid.Row="0" Grid.Column="1"/>
+            <Entry x:Name="pin3" WidthRequest="50" HeightRequest="50" Grid.Row="0" Grid.Column="2"/>
+            <Entry x:Name="pin4" WidthRequest="50" HeightRequest="50" Grid.Row="0" Grid.Column="3"/>
+        </Grid>
+    </StackLayout>
+</ScrollView>
