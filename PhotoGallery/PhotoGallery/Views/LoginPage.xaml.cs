@@ -12,14 +12,14 @@ namespace PhotoGallery.Views
         {
             BindingContext = new LoginPageViewModel();
 
-            Appearing += (object sender, EventArgs e) => {
-                HiddenEntry.Focus();
-            };
+            //Appearing += (object sender, EventArgs e) => {
+            //    HiddenEntry.Focus();
+            //};
 
-            this.HiddenEntry.Unfocused += (object sender, FocusEventArgs e) => {
-                HiddenEntry.Focus();
-                base.OnAppearing();
-            };
+            //this.HiddenEntry.Unfocused += (object sender, FocusEventArgs e) => {
+            //    HiddenEntry.Focus();
+            //    base.OnAppearing();
+            //};
         }
     }
 }
